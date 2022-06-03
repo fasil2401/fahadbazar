@@ -101,15 +101,20 @@ final passwordController = Get.put(PasswordController());
                   ),
                 ),
                 commonHeight2,
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Reset Password ?',
-                    style: TextStyle(
-                      color: textBlueColor,
-                      fontSize: 10.sp,
-                      fontFamily: 'Rubik',
-                      fontWeight: FontWeight.w500,
+                InkWell(
+                  onTap: (){
+                    Get.toNamed('/reset');
+                  },
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      'Reset Password ?',
+                      style: TextStyle(
+                        color: textBlueColor,
+                        fontSize: 10.sp,
+                        fontFamily: 'Rubik',
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ),

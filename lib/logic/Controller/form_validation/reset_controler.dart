@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class VerificationController extends GetxController {
+class ResetController extends GetxController {
   var otp = false.obs;
   var create = false.obs;
   var confirm = false.obs;

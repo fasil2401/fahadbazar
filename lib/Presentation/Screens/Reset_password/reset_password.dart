@@ -1,7 +1,6 @@
-import 'package:fahadbazar/Presentation/Components/error_text.dart';
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
-import 'package:fahadbazar/logic/Controller/form_validation/verification_controller.dart';
+import 'package:fahadbazar/logic/Controller/form_validation/reset_controler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +10,17 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
 import '../../../logic/Controller/ui_controls/password_controller.dart';
+import '../../Components/error_text.dart';
 import '../Login_page/components/login_button.dart';
 import '../Login_page/components/welcome_text.dart';
 
-class VerificationScreen extends StatelessWidget {
-  VerificationScreen({Key? key}) : super(key: key);
-  final passwordController = Get.find<PasswordController>();
-  final formControler = Get.put(VerificationController());
+class ResetScreen extends StatelessWidget {
+   ResetScreen({Key? key}) : super(key: key);
+final passwordController = Get.find<PasswordController>();
+final formControler = Get.put(ResetController());
   final TextEditingController _otpControler = TextEditingController();
   final TextEditingController _createControler = TextEditingController();
   final TextEditingController _confirmControler = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,27 +35,26 @@ class VerificationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 4.h),
+                    padding:  EdgeInsets.symmetric(vertical: 4.h),
                     child: InkWell(
-                      onTap: () {
+                      onTap: (){
                         Get.back();
                       },
                       child: SvgPicture.asset(
-                        'assets/icons/circled_back.svg',
-                        height: 18.sp,
-                        color: splashBackColor,
-                      ),
+                            'assets/icons/circled_back.svg',
+                            height: 18.sp,
+                            color: splashBackColor,
+                          ),
                     ),
                   ),
-                  SizedBox(
-                    height: 11.h,
-                  ),
+                      SizedBox(height: 11.h,),
                   const WelcomeText(
-                    title: 'Phone Verification',
+                    title: 'Reset Password',
                   ),
                   commonHeight1,
-                  Align(
+                   Align(
                     alignment: Alignment.centerLeft,
                     child: SizedBox(
                       width: 70.w,
@@ -191,8 +189,8 @@ class VerificationScreen extends StatelessWidget {
                   Obx(()=> ErrorText(title: 'Password didnt match', isVisible: formControler.confirm.value,)),
                   commonHeight4,
                   LoginButton(
-                    title: 'Register',
-                    callback: 'verification',
+                    title: 'Reset',
+                    callback: 'reset',
                   ),
                 ],
               ),

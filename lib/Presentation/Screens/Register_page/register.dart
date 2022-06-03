@@ -143,7 +143,7 @@ class RegisterScreen extends StatelessWidget {
                                  ),
                  ),
                 commonHeight4,
-                LoginButton(title: 'Continue', callback: 'register'),
+                LoginButton(title: 'Continue', callback: 'continue'),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.only(bottom: 20),

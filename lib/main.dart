@@ -1,6 +1,7 @@
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
 import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dart';
 import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
+import 'package:fahadbazar/Presentation/Screens/Reset_password/reset_password.dart';
 import 'package:fahadbazar/Presentation/Screens/Splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,6 +35,9 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/verification', page: () => VerificationScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/reset', page: () => ResetScreen(),
             transition: Transition.cupertino
             ),
             

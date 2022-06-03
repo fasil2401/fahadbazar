@@ -1,5 +1,6 @@
-
 import 'package:fahadbazar/logic/Controller/form_validation/register_controler.dart';
+import 'package:fahadbazar/logic/Controller/form_validation/reset_controler.dart';
+import 'package:fahadbazar/logic/Controller/form_validation/verification_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -9,9 +10,11 @@ import '../../../constants/colors.dart';
 class LoginButton extends StatelessWidget {
   final String title;
   final String callback;
-   LoginButton({Key? key, required this.title, required this.callback})
+  LoginButton({Key? key, required this.title, required this.callback})
       : super(key: key);
-  final formController = Get.put(RegisterController());
+  final registerController = Get.put(RegisterController());
+  final verifyController = Get.put(VerificationController());
+  final resetController = Get.put(ResetController());
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,7 +28,19 @@ class LoginButton extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          if(callback == 'login'){}else if(callback == 'register'){formController.checkRegisterForm();}
+          if (callback == 'login') {
+          } 
+          else if (callback == 'continue') {
+            registerController.checkRegisterForm();
+          } 
+          else if (callback == 'verification') {
+            verifyController.checkRegisterForm();
+          }
+          else if(callback =='reset'){
+            resetController.checkRegisterForm();
+          }
+
+          
         },
         child: Text(
           title,
