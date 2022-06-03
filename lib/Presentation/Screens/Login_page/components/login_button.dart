@@ -29,6 +29,7 @@ class LoginButton extends StatelessWidget {
         ),
         onPressed: () {
           if (callback == 'login') {
+            Get.toNamed('/main');
           } 
           else if (callback == 'continue') {
             registerController.checkRegisterForm();
@@ -38,9 +39,7 @@ class LoginButton extends StatelessWidget {
           }
           else if(callback =='reset'){
             resetController.checkRegisterForm();
-          }
-
-          
+          } 
         },
         child: Text(
           title,

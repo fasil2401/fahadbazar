@@ -1,4 +1,5 @@
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
+import 'package:fahadbazar/Presentation/Screens/Main_screen/main_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dart';
 import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
 import 'package:fahadbazar/Presentation/Screens/Reset_password/reset_password.dart';
@@ -27,7 +28,9 @@ class MyApp extends StatelessWidget {
           ),
           initialRoute: '/',
           getPages: [
-            GetPage(name: '/', page: () => SplashScreen()),
+            GetPage(name: '/', page: () => SplashScreen(),
+            transition: Transition.cupertino
+            ),
             GetPage(name: '/login', page: () => LoginScreen(),
             transition: Transition.cupertino
             ),
@@ -38,6 +41,9 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/reset', page: () => ResetScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/main', page: () => MainScreen(),
             transition: Transition.cupertino
             ),
             
