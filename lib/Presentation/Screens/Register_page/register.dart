@@ -97,6 +97,7 @@ class RegisterScreen extends StatelessWidget {
                       height: 16.sp,
                     ),
                   ),
+                  keyboardType: TextInputType.emailAddress,
                   controller: _emailController,
                   onChanged: (value){
                     formContrler.validateEmail(value);
