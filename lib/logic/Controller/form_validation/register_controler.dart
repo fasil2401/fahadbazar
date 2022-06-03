@@ -2,60 +2,50 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends GetxController {
-  final GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  var name = false.obs;
+  var email = false.obs;
+  var phone = false.obs;
+  var nameControl = '';
+  var emailControl = '';
+  var phoneControl = '';
 
-  late TextEditingController nameController,emailController, phoneController;
-  var name = '';
-  var email = '';
-  var phone = '';
-
-  @override
-  void onInit() {
-    super.onInit();
-    nameController = TextEditingController();
-    emailController = TextEditingController();
-    phoneController = TextEditingController();
-    
+  validateName(String value) {
+    if (value.length < 3) {
+      name.value = true;
+    } else {
+      name.value = false;
+      nameControl = value;
+    }
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    nameController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
-    
-  }
-   String? validateName(String value){
-     if(value.length < 3){
-       return "Name should be atleast 3 letters";
-     }
-     return null;
-  }
-  String? validateEmail(String value) {
+  validateEmail(String value) {
     if (!GetUtils.isEmail(value)) {
-      return "Provide valid Email";
+      email.value = true;
+    } else {
+      email.value = false;
+      emailControl = value;
     }
-    return null;
   }
 
-  String? validatePhone(String value) {
-    if (!GetUtils.isPhoneNumber(value)) {
-      return "Provide valid Mobile number";
+  validatePhone(String value) {
+    if (value.length < 10) {
+      phone.value = true;
+    } else {
+      phone.value = false;
+      phoneControl = value;
     }
-    return null;
   }
- 
 
-  void checkLogin() {
-    final isValid = loginFormKey.currentState!.validate();
-    if (!isValid) {
-      return;
+  checkRegisterForm() {
+    if (name.value == false &&
+        email.value == false &&
+        phone.value == false &&
+        nameControl.isNotEmpty &&
+        emailControl.isNotEmpty &&
+        phoneControl.isNotEmpty) {
+      Get.toNamed('/verification');
+    } else {
+      Get.snackbar('Warning!', 'Please complete the form');
     }
-    loginFormKey.currentState!.save();
   }
 }

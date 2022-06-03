@@ -1,5 +1,6 @@
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
+import 'package:fahadbazar/logic/Controller/form_validation/register_controler.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,12 @@ import '../Login_page/components/login_button.dart';
 import '../Login_page/components/welcome_sub.dart';
 import '../Login_page/components/welcome_text.dart';
 
-
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({Key? key}) : super(key: key);
-
+  RegisterScreen({Key? key}) : super(key: key);
+  final formContrler = Get.put(RegisterController());
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +31,6 @@ class RegisterScreen extends StatelessWidget {
           child: SizedBox(
             height: 100.h,
             child: Column(
-              
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -63,7 +65,17 @@ class RegisterScreen extends StatelessWidget {
                       height: 16.sp,
                     ),
                   ),
+                  controller: _nameController,
+                  onChanged: (value) {
+                    formContrler.validateName(value);                  
+                  },
                 ),
+                 Obx(
+                   ()=> ErrorText(
+                    title: 'Name should be atleast 3 letters',
+                    isVisible: formContrler.name.value,
+                                 ),
+                 ),              
                 commonHeight2,
                 CupertinoTextField(
                   decoration: BoxDecoration(
@@ -85,8 +97,17 @@ class RegisterScreen extends StatelessWidget {
                       height: 16.sp,
                     ),
                   ),
+                  controller: _emailController,
+                  onChanged: (value){
+                    formContrler.validateEmail(value);
+                  },
                 ),
-               const ErrorText(title: 'Enter valid email', ),
+                 Obx(
+                   ()=> ErrorText(
+                    title: 'Enter valid Email',
+                    isVisible: formContrler.email.value,
+                                 ),
+                 ),
                 commonHeight2,
                 CupertinoTextField(
                   decoration: BoxDecoration(
@@ -109,18 +130,23 @@ class RegisterScreen extends StatelessWidget {
                       height: 16.sp,
                     ),
                   ),
+                  controller: _phoneController,
+                  onChanged: (value){
+                    formContrler.validatePhone(value);
+                  },
                 ),
+                 Obx(
+                   ()=> ErrorText(
+                    title: 'Enter valid Mobile number',
+                    isVisible: formContrler.phone.value,
+                                 ),
+                 ),
                 commonHeight4,
-                
-                LoginButton(
-                  title: 'Continue',
-                  callback: 'register'
-                ),
-                
-               Expanded(
-                 child: Padding(
-                   padding: const EdgeInsets.only(bottom: 20),
-                   child: Align(
+                LoginButton(title: 'Continue', callback: 'register'),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Align(
                       alignment: Alignment.bottomCenter,
                       child: SizedBox(
                         width: 70.w,
@@ -134,17 +160,20 @@ class RegisterScreen extends StatelessWidget {
                               fontWeight: FontWeight.w100),
                           patternList: [
                             EasyRichTextPattern(
-                              targetString: 'Sign In',
-                              style:const TextStyle(
-                                  color: mutedBlueColor, fontWeight: FontWeight.w400),
-                              recognizer: TapGestureRecognizer()..onTap =(){Get.toNamed('/login');}
-                            ),
+                                targetString: 'Sign In',
+                                style: const TextStyle(
+                                    color: mutedBlueColor,
+                                    fontWeight: FontWeight.w400),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Get.toNamed('/login');
+                                  }),
                           ],
                         ),
                       ),
                     ),
-                 ),
-               ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -153,4 +182,3 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
-

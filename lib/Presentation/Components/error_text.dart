@@ -1,13 +1,16 @@
+import 'package:fahadbazar/logic/Controller/form_validation/register_controler.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/colors.dart';
+
 
 class ErrorText extends StatelessWidget {
   final String title;
   final bool isVisible;
   const ErrorText({
-    Key? key,required this.title,  this.isVisible = true
+    Key? key,required this.title,  this.isVisible = false
   }) : super(key: key);
 
   @override
