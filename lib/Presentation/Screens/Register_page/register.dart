@@ -9,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
 
+import '../../Components/error_text.dart';
 import '../Login_page/components/login_button.dart';
 import '../Login_page/components/welcome_sub.dart';
 import '../Login_page/components/welcome_text.dart';
@@ -85,6 +86,7 @@ class RegisterScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+               const ErrorText(title: 'Enter valid email', ),
                 commonHeight2,
                 CupertinoTextField(
                   decoration: BoxDecoration(
@@ -151,3 +153,4 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
+
