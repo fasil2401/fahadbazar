@@ -11,14 +11,14 @@ final List<String> catNames =[
 'BabyCare',
 'Beverages',
 'Choclates',
-'CookiesSnacks',
-'DairyFrozen',
-'GiftitemsWalldecor',
+'Cookies & Snacks',
+'Dairy & Frozen',
+'Giftitems & Walldecor',
 'Grocery',
 'HomeCare',
 'PersonalCare',
-'ToysKidsitems',
-'VegetablesFruits'
+'Toys & Kidsitems',
+'Vegetables & Fruits'
 ];
 
 
