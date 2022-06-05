@@ -6,8 +6,9 @@ import '../constants/colors.dart';
 class SectionHeadText extends StatelessWidget {
 
   final String title;
+  final bool tail;
   const SectionHeadText({
-    Key? key,required this.title
+    Key? key,required this.title, this.tail = true
   }) : super(key: key);
 
   @override
@@ -23,16 +24,19 @@ class SectionHeadText extends StatelessWidget {
           fontWeight: FontWeight.w500
         ),
         ),
-        InkWell(
-          onTap: (){},
-          child: Text('view all',
-          style: TextStyle(
-            // decoration: TextDecoration.underline,
-            fontFamily: 'Rubik',
-            fontSize: 10.sp,
-            fontWeight: FontWeight.w500,
-            color: textBlueColor
-          ),
+        Visibility(
+          visible: tail,
+          child: InkWell(
+            onTap: (){},
+            child: Text('view all',
+            style: TextStyle(
+              // decoration: TextDecoration.underline,
+              fontFamily: 'Rubik',
+              fontSize: 10.sp,
+              fontWeight: FontWeight.w500,
+              color: textBlueColor
+            ),
+            ),
           ),
         )  
       ],

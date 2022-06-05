@@ -28,61 +28,60 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding:  EdgeInsets.only(bottom: 8.h),
-        child: ListView(
-          physics:const BouncingScrollPhysics(),
-          shrinkWrap: true,
-          children: [
-            commonHeight2,
-            const CarouselMain(),
-            commonHeight2,
-            Padding(
-              padding: commonHorizontalPadding,
-              child: Column(
-                children: [
-                  const SectionHeadText(
-                    title: 'Top Categories',
-                  ),
-                  commonHeight2,
-                  const TopCategories(),
-                  const SectionHeadText(
-                    title: 'Best Sellers',
-                  ),
-                  commonHeight1,
-                  const ProductSlider(),
-                ],
-              ),
+      body: ListView(
+        physics:const BouncingScrollPhysics(),
+        shrinkWrap: true,
+        children: [
+          commonHeight2,
+          const CarouselMain(),
+          commonHeight2,
+          Padding(
+            padding: commonHorizontalPadding,
+            child: Column(
+              children: [
+                const SectionHeadText(
+                  title: 'Top Categories',
+                ),
+                commonHeight2,
+                const TopCategories(),
+                const SectionHeadText(
+                  title: 'Best Sellers',
+                ),
+                commonHeight1,
+                const ProductSlider(),
+              ],
             ),
-            commonHeight2,
-            const CarouselMain(),
-            commonHeight2,
-            
-            Padding(
-              padding: commonHorizontalPadding,
-              child: Column(
-                children: [
-                 const SectionHeadText(title: 'Trending Products'),
-                  commonHeight1,
-                  const ProductSlider(),
-                ],
-              ),
+          ),
+          commonHeight2,
+          const CarouselMain(),
+          commonHeight2,
+          
+          Padding(
+            padding: commonHorizontalPadding,
+            child: Column(
+              children: [
+               const SectionHeadText(title: 'Trending Products'),
+                commonHeight1,
+                const ProductSlider(),
+              ],
             ),
-             commonHeight2,
-            const CarouselMain(),
-            commonHeight2,
-            Padding(
-              padding: commonHorizontalPadding,
-              child: Column(
-                children: [
-                 const SectionHeadText(title: 'Best Products'),
-                  commonHeight1,
-                  const ProductSlider(),
-                ],
-              ),
+          ),
+           commonHeight2,
+          const CarouselMain(),
+          commonHeight2,
+          Padding(
+            padding: commonHorizontalPadding,
+            child: Column(
+              children: [
+               const SectionHeadText(title: 'Best Products'),
+                commonHeight1,
+                const ProductSlider(),
+              ],
             ),
-          ],
-        ),
+          ),
+          commonHeight5,
+          commonHeight5
+        ],
       ),
     );
   }
