@@ -6,3 +6,4 @@ import 'package:sizer/sizer.dart';
  SizedBox commonHeight3 = SizedBox(height: 3.h,);
  SizedBox commonHeight4 = SizedBox(height: 4.h,);
  SizedBox commonHeight5 = SizedBox(height: 5.h,);
+ 

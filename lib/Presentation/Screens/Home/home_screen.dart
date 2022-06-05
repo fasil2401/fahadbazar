@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fahadbazar/Presentation/Components/product_slide.dart';
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
 import 'package:fahadbazar/Presentation/constants/images.dart';
+import 'package:fahadbazar/Presentation/constants/paddings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
@@ -9,6 +11,7 @@ import 'package:sizer/sizer.dart';
 import '../../Components/app_bar.dart';
 import '../../Components/section_head.dart';
 import '../../Components/top_category_slider.dart';
+import 'components/carousel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,48 +28,61 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: ListView(
-        shrinkWrap: true,
-        children: [
-          commonHeight2,
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 23.h,
-              viewportFraction: 0.9,
-              autoPlay: true,
+      body: Padding(
+        padding:  EdgeInsets.only(bottom: 8.h),
+        child: ListView(
+          physics:const BouncingScrollPhysics(),
+          shrinkWrap: true,
+          children: [
+            commonHeight2,
+            const CarouselMain(),
+            commonHeight2,
+            Padding(
+              padding: commonHorizontalPadding,
+              child: Column(
+                children: [
+                  const SectionHeadText(
+                    title: 'Top Categories',
+                  ),
+                  commonHeight2,
+                  const TopCategories(),
+                  const SectionHeadText(
+                    title: 'Best Sellers',
+                  ),
+                  commonHeight1,
+                  const ProductSlider(),
+                ],
+              ),
             ),
-            items: imgList.map((i) {
-              return Builder(
-                builder: (BuildContext context) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width,
-                    margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                    decoration: BoxDecoration(
-                        color: commonScaffoldBack,
-                        image: DecorationImage(
-                            image: AssetImage(
-                              i,
-                            ),
-                            fit: BoxFit.cover),
-                        borderRadius: BorderRadius.circular(24)),
-                  );
-                },
-              );
-            }).toList(),
-          ),
-          commonHeight2,
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
-            child: Column(
-              children: [
-                const SectionHeadText(title: 'Top Categories',),
-                commonHeight2,
-                const TopCategories(),
-                const SectionHeadText(title: 'Top Categories',),
-              ],
+            commonHeight2,
+            const CarouselMain(),
+            commonHeight2,
+            
+            Padding(
+              padding: commonHorizontalPadding,
+              child: Column(
+                children: [
+                 const SectionHeadText(title: 'Trending Products'),
+                  commonHeight1,
+                  const ProductSlider(),
+                ],
+              ),
             ),
-          )
-        ],
+             commonHeight2,
+            const CarouselMain(),
+            commonHeight2,
+            Padding(
+              padding: commonHorizontalPadding,
+              child: Column(
+                children: [
+                 const SectionHeadText(title: 'Best Products'),
+                  commonHeight1,
+                  const ProductSlider(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
