@@ -47,8 +47,7 @@ class CategoryScreen extends StatelessWidget {
                   duration: Duration(milliseconds: 900),
                   curve: Curves.fastLinearToSlowEaseIn,
                   child: FadeInAnimation(
-                      child: Container(
-                          child: Column(
+                      child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -56,13 +55,13 @@ class CategoryScreen extends StatelessWidget {
                         width: 25.w,
                         height: 25.w,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 185, 182, 182),
-                          borderRadius: BorderRadius.circular(15),
-                          image: DecorationImage(
-                              image: AssetImage(
-                                catImgList[index],
-                              ),
-                              fit: BoxFit.cover),
+                      color: Color.fromARGB(255, 185, 182, 182),
+                      borderRadius: BorderRadius.circular(15),
+                      image: DecorationImage(
+                          image: AssetImage(
+                            catImgList[index],
+                          ),
+                          fit: BoxFit.cover),
                         ),
                       ),
                       commonHeight1,
@@ -70,12 +69,12 @@ class CategoryScreen extends StatelessWidget {
                         catNames[index],
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: 9.sp,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: 'Rubik'),
+                        fontSize: 9.sp,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Rubik'),
                       )
                     ],
-                  ))),
+                  )),
                 ),
               );
             },

@@ -25,7 +25,7 @@ final List<String> catNames =[
 final List<String> catImgList = [
 'assets/images/categories/Accessories.webp',
 'assets/images/categories/BabyCare.jpeg',
-'assets/images/categories/Beverages.png',
+'assets/images/categories/Beverages.webp',
 'assets/images/categories/Choclates.jpeg',
 'assets/images/categories/CookiesSnacks.png',
 'assets/images/categories/DairyFrozen.jpeg',

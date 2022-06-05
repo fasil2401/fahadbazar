@@ -30,9 +30,11 @@ class NotificationScreen extends StatelessWidget {
             itemCount: notifyContent.length,
             itemBuilder: (BuildContext context, int index) {
               return AnimationConfiguration.staggeredList(
+                
                 position: index,
                 delay:const Duration(milliseconds: 100),
                 child: SlideAnimation(
+                  
                   duration:const Duration(milliseconds: 2500),
                   curve: Curves.fastLinearToSlowEaseIn,
                   child: FadeInAnimation(
