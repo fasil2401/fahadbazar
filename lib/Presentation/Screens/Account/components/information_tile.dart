@@ -31,7 +31,7 @@ class InformationTile extends StatelessWidget {
         SizedBox(width: 5.w,),
         Text(
           title,
-          style: TextStyle(fontFamily: 'Rubik', fontSize: 17.sp),
+          style: TextStyle(fontFamily: 'Rubik', fontSize: 16.sp, fontWeight: FontWeight.w100),
         ),
       ],
     );

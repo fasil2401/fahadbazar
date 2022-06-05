@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
-import 'account_head.dart';
+import 'components/account_head.dart';
 import 'components/information_tile.dart';
 
 class ProfileScreen extends StatelessWidget {

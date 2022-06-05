@@ -3,7 +3,7 @@ import 'package:fahadbazar/Presentation/constants/heights.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../constants/colors.dart';
+import '../../../constants/colors.dart';
 
 class AccountHead extends StatelessWidget {
   const AccountHead({
