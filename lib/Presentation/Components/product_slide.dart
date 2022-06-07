@@ -12,56 +12,60 @@ class ProductSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return LimitedBox(
-      maxHeight: 18.h,
+      maxHeight: 0.4*width,
       child: ListView.separated(
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: catImgList.length,
         itemBuilder: (context, index) {
-          return Stack(
-            children: [
-              SizedBox(
-                width: 44.w,
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    width: 41.w,
-                    height: 16.h,
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 185, 182, 182),
-                      borderRadius: BorderRadius.circular(15),
-                      image:const DecorationImage(
-                        image: AssetImage(
-                          'assets/images/products/onion.jpeg',
+          return GestureDetector(
+            onTap: (){},
+            child: Stack(
+              children: [
+                SizedBox(
+                  width: 44.w,
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Container(
+                      width: 41.w,
+                      height: 0.37*width,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 185, 182, 182),
+                        borderRadius: BorderRadius.circular(15),
+                        image:const DecorationImage(
+                          image: AssetImage(
+                            'assets/images/products/onion.jpeg',
+                          ),
+                          fit: BoxFit.cover,
                         ),
-                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: 41.w,
-                  height: 5.5.h,
-                  decoration: BoxDecoration(
-                      color: commonBlack.withOpacity(0.7),
-                      borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15))),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: Column(
-                      children: [productName(), categoryName()],
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: 41.w,
+                    height: 0.13* width,
+                    decoration: BoxDecoration(
+                        color: commonBlack.withOpacity(0.7),
+                        borderRadius: const BorderRadius.only(
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15))),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                      child: Column(
+                        children: [productName(), categoryName()],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              offerTag(),
-            ],
+                offerTag(),
+              ],
+            ),
           );
         },
         separatorBuilder: (context, index) => SizedBox(
@@ -116,6 +120,8 @@ class ProductSlider extends StatelessWidget {
         Flexible(
           child: Text(
             'vegetables',
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontFamily: 'Rubik',
               fontSize: 11.sp,
@@ -123,15 +129,13 @@ class ProductSlider extends StatelessWidget {
             ),
           ),
         ),
-        Flexible(
-          child: Text(
-            '₹60',
-            style: TextStyle(
-              decoration: TextDecoration.lineThrough,
-              fontFamily: 'Rubik',
-              fontSize: 11.sp,
-              color: mutedColor,
-            ),
+        Text(
+          '₹60',
+          style: TextStyle(
+            decoration: TextDecoration.lineThrough,
+            fontFamily: 'Rubik',
+            fontSize: 11.sp,
+            color: mutedColor,
           ),
         )
       ],

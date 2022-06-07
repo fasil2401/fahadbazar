@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/colors.dart';
@@ -27,7 +28,9 @@ class SectionHeadText extends StatelessWidget {
         Visibility(
           visible: tail,
           child: InkWell(
-            onTap: (){},
+            onTap: (){
+              Get.toNamed('/products');
+            },
             child: Text('view all',
             style: TextStyle(
               // decoration: TextDecoration.underline,

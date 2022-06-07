@@ -21,6 +21,7 @@ class ProfileScreen extends StatelessWidget {
         child: Padding(
           padding:  EdgeInsets.only(bottom: 8.h),
           child: ListView(
+            physics:const BouncingScrollPhysics(),
             children: [
               Padding(
                 padding: EdgeInsets.only(top: 5.h),
