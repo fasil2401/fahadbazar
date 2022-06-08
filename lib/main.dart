@@ -5,6 +5,7 @@ import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
 import 'package:fahadbazar/Presentation/Screens/Reset_password/reset_password.dart';
 import 'package:fahadbazar/Presentation/Screens/Single%20Page/single_page.dart';
 import 'package:fahadbazar/Presentation/Screens/Splash_screen/splash_screen.dart';
+import 'package:fahadbazar/Presentation/Screens/cart%20screen/cart.dart';
 import 'package:fahadbazar/Presentation/Screens/product%20list/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/single', page: ()=> SinglePage(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/cart', page: ()=> CartScreen(),
             transition: Transition.cupertino
             ),
             ],

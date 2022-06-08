@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/colors.dart';
@@ -31,9 +32,14 @@ class FahadAppBar extends StatelessWidget {
           padding:  EdgeInsets.symmetric(horizontal: 4.w),
           child: SvgPicture.asset('assets/icons/appBar/search_appBar.svg', height: 22,),
         ),
-        Padding(
-          padding:  EdgeInsets.only(left: 4.w, right: 6.w),
-          child: SvgPicture.asset('assets/icons/appBar/cart.svg',height: 22),
+        GestureDetector(
+           onTap: (){
+              Get.toNamed('/cart');
+            },
+          child: Padding(
+            padding:  EdgeInsets.only(left: 4.w, right: 6.w),
+            child: SvgPicture.asset('assets/icons/appBar/cart.svg',height: 22),
+          ),
         ),
         
       ],

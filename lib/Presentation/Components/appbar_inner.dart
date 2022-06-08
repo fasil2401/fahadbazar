@@ -9,9 +9,10 @@ import 'app_bar_text.dart';
 
 class AppBarInner extends StatelessWidget {
   final bool visible;
+  final bool cart;
   final String title;
   const AppBarInner({
-    Key? key,  this.visible = false, required this.title
+    Key? key,  this.visible = false, required this.title,this.cart = true
   }) : super(key: key);
 
   @override
@@ -42,9 +43,17 @@ class AppBarInner extends StatelessWidget {
             child: SvgPicture.asset('assets/icons/appBar/filter.svg', height: 22,),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(left: 4.w, right: 6.w),
-          child: SvgPicture.asset('assets/icons/appBar/cart.svg', height: 22),
+        Visibility(
+          visible: cart,
+          child: GestureDetector(
+            onTap: (){
+              Get.toNamed('/cart');
+            },
+            child: Padding(
+              padding: EdgeInsets.only(left: 4.w, right: 6.w),
+              child: SvgPicture.asset('assets/icons/appBar/cart.svg', height: 22),
+            ),
+          ),
         ),
       ],
     );
