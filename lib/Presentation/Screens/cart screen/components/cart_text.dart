@@ -13,7 +13,7 @@ class CartPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: Text(
-        '₹6000',
+        '₹600',
         style: TextStyle(
           fontFamily: 'Rubik',
           fontSize: 0.055 * sw,
@@ -42,7 +42,7 @@ class CartNameText extends StatelessWidget {
         style: TextStyle(
           fontFamily: 'Rubik',
           fontSize: 0.04 * sw,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w400,
         ),
       ),
     );

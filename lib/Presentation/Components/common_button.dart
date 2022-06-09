@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/colors.dart';
 
 
 class CommonButton extends StatelessWidget {
+  final String text;
+  final String check;
   const CommonButton({
-    Key? key,
+    Key? key,required this.text, this.check = 'no'
   }) : super(key: key);
 
   @override
@@ -26,7 +29,11 @@ class CommonButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(2),
         child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            if(check == 'add'){
+              Get.toNamed('/add_address');
+            }
+          },
           style: ElevatedButton.styleFrom(
               onPrimary: mutedBlueColor,
               //side: BorderSide(width: 3.0, color: Colors.transparent,),
@@ -34,7 +41,7 @@ class CommonButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8)),
               primary: Colors.transparent),
           child: Text(
-            'Buy now',
+            text,
             style: TextStyle(
                 fontFamily: "Rubik",
                 fontSize: 14.sp,

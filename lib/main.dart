@@ -1,3 +1,5 @@
+import 'package:fahadbazar/Presentation/Screens/Add%20Address/add_address.dart';
+import 'package:fahadbazar/Presentation/Screens/Addresses/addresses.dart';
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
 import 'package:fahadbazar/Presentation/Screens/Main_screen/main_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dart';
@@ -56,6 +58,12 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/cart', page: ()=> CartScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/address', page: ()=> AddressScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/add_address', page: ()=> AddAddress(),
             transition: Transition.cupertino
             ),
             ],

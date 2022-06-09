@@ -75,7 +75,7 @@ class SinglePage extends StatelessWidget {
                 commonHeight4,
                 addToCartButton(),
                 commonHeight2,
-                const CommonButton(),
+                const CommonButton(text: 'Buy Now',),
                 commonHeight5
               ],
             ),
@@ -90,7 +90,7 @@ class SinglePage extends StatelessWidget {
       child: DropdownButton2(
         isExpanded: true,
         hint: SizedBox(
-          width: 30,
+          width: 33,
           child: Text(
             hint,
             // overflow: TextOverflow.ellipsis,

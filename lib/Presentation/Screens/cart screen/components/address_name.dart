@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class AddressName extends StatelessWidget {
+  final String text;
   const AddressName({
-    Key? key,
+    Key? key,required this.text
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Text('Angelina Jolie',
+    return Text(text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(

@@ -16,7 +16,7 @@ class AddressHead extends StatelessWidget {
     return Row(
       children: [
         Flexible(
-          child: AddressName(),
+          child: AddressName(text: 'Angelina Jolie',),
         ),
         SizedBox(
           width: 2.w,
