@@ -134,6 +134,7 @@ class RegisterScreen extends StatelessWidget {
                   controller: _phoneController,
                   onChanged: (value){
                     formContrler.validatePhone(value);
+                    print(formContrler.nameControl);
                   },
                 ),
                  Obx(

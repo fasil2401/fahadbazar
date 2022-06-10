@@ -1,5 +1,7 @@
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
+import 'package:fahadbazar/logic/Controller/api/login_controller.dart';
+import 'package:fahadbazar/logic/Controller/form_validation/login_control.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +19,10 @@ class LoginScreen extends StatelessWidget {
    LoginScreen({Key? key}) : super(key: key);
 
 final passwordController = Get.put(PasswordController());
+final loginControl = Get.put(LoginFormControl());
+// final loginCOntroller = Get.put(LoginController());
+TextEditingController _emailorphoneController = TextEditingController();
+TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,12 +49,16 @@ final passwordController = Get.put(PasswordController());
                 ),
                 commonHeight5,
                 CupertinoTextField(
+                  controller: _emailorphoneController,
+                  onChanged: (value){
+                    loginControl.validateEmailorphone(value);
+                  },
                   decoration: BoxDecoration(
                     color: textFieldColor,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   style: TextStyle(fontSize: 16.sp),
-                  placeholder: 'Enter Your Name',
+                  placeholder: 'Enter Your email or phone',
                   placeholderStyle: TextStyle(
                       color: CupertinoColors.placeholderText,
                       fontFamily: 'Rubik',
@@ -66,6 +76,10 @@ final passwordController = Get.put(PasswordController());
                 commonHeight2,
                 Obx(
                   ()=> CupertinoTextField(
+                    controller: _passwordController,
+                    onChanged: (value){
+                      loginControl.validatePassword(value);
+                    },
                     decoration: BoxDecoration(
                       color: textFieldColor,
                       borderRadius: BorderRadius.circular(8),
