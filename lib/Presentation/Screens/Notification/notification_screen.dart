@@ -16,7 +16,7 @@ class NotificationScreen extends StatelessWidget {
     double _w = MediaQuery.of(context).size.width;
     return  Scaffold(
       backgroundColor: commonScaffoldBack,
-      appBar:const PreferredSize(
+      appBar: PreferredSize(
          preferredSize: Size.fromHeight(56),
          child: FahadAppBar(title: AppBarText(title: 'Notifications',),),
          ),

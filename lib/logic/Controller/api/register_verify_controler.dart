@@ -18,7 +18,7 @@ class VerifyController extends GetxController {
       isLoading(true);
       if(otpCOntrol.otp.value == otp){
          feedback = await RemoteServicesVerify().getVerify(
-          'https://fahadbazar.com/api/customer/register?name=${name}&number=8${phone}&email=${email}&password=${password}');
+          'https://fahadbazar.com/api/customer/register?name=${name}&number=${phone}&email=${email}&password=${password}');
       }
       else{
          feedback = null;

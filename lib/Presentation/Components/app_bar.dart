@@ -8,10 +8,10 @@ import '../constants/colors.dart';
 class FahadAppBar extends StatelessWidget {
 
   final Widget title;
-  const FahadAppBar({
+   FahadAppBar({
     Key? key,required this.title
   }) : super(key: key);
-
+// final GlobalKey<ScaffoldState> _key = GlobalKey(); 
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -20,8 +20,10 @@ class FahadAppBar extends StatelessWidget {
       leadingWidth: 47,
       leading: Padding(
         padding:const EdgeInsets.only(left: 20),
-        child: InkWell(
-            onTap: () {},
+        child: GestureDetector(
+            onTap: () {
+              Scaffold.of(context).openDrawer();
+            },
             child: Image.asset('assets/images/menu_drawer.png', )),
       ),
       // title: Image.asset('assets/images/appBar_head.png',),

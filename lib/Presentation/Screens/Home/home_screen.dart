@@ -6,13 +6,17 @@ import 'package:fahadbazar/Presentation/constants/images.dart';
 import 'package:fahadbazar/Presentation/constants/paddings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../logic/Controller/ui_controls/bottom_navigation_view.dart';
 import '../../Components/app_bar.dart';
+import '../../Components/drawer_custom.dart';
 import '../../Components/section_head.dart';
 import '../../Components/top_category_slider.dart';
 import 'components/carousel.dart';
 
+final statusController = Get.put(BottomNavigationController());
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -28,6 +32,12 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+       drawer: DrawerCustom(),
+       onDrawerChanged: (bool status){
+         print(status);
+         statusController.check(status);
+
+       },
       body: ListView(
         physics:const BouncingScrollPhysics(),
         shrinkWrap: true,
