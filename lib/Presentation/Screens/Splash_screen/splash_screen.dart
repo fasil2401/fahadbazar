@@ -41,6 +41,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
  Future <void>checkIn() async{
    await Future.delayed(Duration(seconds: 2));
-   Get.offNamed('/login');
+   Get.offNamed('/main');
   }
 }
