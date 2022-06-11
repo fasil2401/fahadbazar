@@ -1,4 +1,5 @@
 import 'package:fahadbazar/logic/Controller/api/login_controller.dart';
+import 'package:fahadbazar/logic/Controller/api/register_otp_controller.dart';
 import 'package:fahadbazar/logic/Controller/form_validation/login_control.dart';
 import 'package:fahadbazar/logic/Controller/form_validation/register_controler.dart';
 import 'package:fahadbazar/logic/Controller/form_validation/reset_controler.dart';
@@ -31,6 +32,7 @@ class LoginButton extends StatelessWidget {
   final verifyController = Get.put(VerificationController());
   final resetController = Get.put(ResetController());
   final loginApiController = Get.put(LoginController());
+  // final registerApiControl = Get.put(RegisterOtpController());
   final loginControl = Get.put(LoginFormControl());
   @override
   Widget build(BuildContext context) {

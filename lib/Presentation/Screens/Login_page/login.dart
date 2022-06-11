@@ -21,8 +21,8 @@ class LoginScreen extends StatelessWidget {
 final passwordController = Get.put(PasswordController());
 final loginControl = Get.put(LoginFormControl());
 // final loginCOntroller = Get.put(LoginController());
-TextEditingController _emailorphoneController = TextEditingController();
-TextEditingController _passwordController = TextEditingController();
+// TextEditingController _emailorphoneController = TextEditingController();
+// TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +49,7 @@ TextEditingController _passwordController = TextEditingController();
                 ),
                 commonHeight5,
                 CupertinoTextField(
-                  controller: _emailorphoneController,
+                  // controller: _emailorphoneController,
                   onChanged: (value){
                     loginControl.validateEmailorphone(value);
                   },
@@ -76,7 +76,7 @@ TextEditingController _passwordController = TextEditingController();
                 commonHeight2,
                 Obx(
                   ()=> CupertinoTextField(
-                    controller: _passwordController,
+                    // controller: _passwordController,
                     onChanged: (value){
                       loginControl.validatePassword(value);
                     },

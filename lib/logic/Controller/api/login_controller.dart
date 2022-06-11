@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../../Services/remote_services.dart';
+import '../../../Services/remote_login_services.dart';
 import '../../../models/login_register/login_model.dart';
 
 class LoginController extends GetxController {

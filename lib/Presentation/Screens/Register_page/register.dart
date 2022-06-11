@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -111,6 +112,11 @@ class RegisterScreen extends StatelessWidget {
                  ),
                 commonHeight2,
                 CupertinoTextField(
+                  inputFormatters: [FilteringTextInputFormatter('.', allow: false),
+                  FilteringTextInputFormatter('-', allow: false),
+                  FilteringTextInputFormatter(' ', allow: false),
+                  FilteringTextInputFormatter('*', allow: false),
+                  ],
                   decoration: BoxDecoration(
                     color: textFieldColor,
                     borderRadius: BorderRadius.circular(8),

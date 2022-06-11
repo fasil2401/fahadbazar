@@ -1,7 +1,12 @@
+import 'package:fahadbazar/logic/Controller/api/register_verify_controler.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'register_controler.dart';
+
 class VerificationController extends GetxController {
+  final verifyApicontrol = Get.put(VerifyController());
+  final registerControl = Get.put(RegisterController());
   var otp = false.obs;
   var create = false.obs;
   var confirm = false.obs;
@@ -10,7 +15,7 @@ class VerificationController extends GetxController {
   var confirmControl = '';
 
   validateOtp(String value) {
-    if (value.length < 6) {
+    if (value.length != 4) {
       otp.value = true;
     } else {
       otp.value = false;
@@ -43,7 +48,9 @@ class VerificationController extends GetxController {
         otpControl.isNotEmpty &&
         createControl.isNotEmpty &&
         confirmControl.isNotEmpty) {
-      Get.toNamed('/login');
+
+      // Get.toNamed('/login');
+      verifyApicontrol.getVerify(name: registerControl.nameControl, password: confirmControl, phone: registerControl.phoneControl, email: registerControl.emailControl, otp: otpControl);
     } else {
       Get.snackbar('Warning!', 'Please complete the form');
     }

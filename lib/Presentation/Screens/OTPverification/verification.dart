@@ -10,6 +10,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:easy_rich_text/easy_rich_text.dart';
+import '../../../logic/Controller/api/register_otp_controller.dart';
+import '../../../logic/Controller/form_validation/register_controler.dart';
 import '../../../logic/Controller/ui_controls/password_controller.dart';
 import '../Login_page/components/login_button.dart';
 import '../Login_page/components/welcome_text.dart';
@@ -18,6 +20,9 @@ class VerificationScreen extends StatelessWidget {
   VerificationScreen({Key? key}) : super(key: key);
   final passwordController = Get.find<PasswordController>();
   final formControler = Get.put(VerificationController());
+  final registerApiControl = Get.put(RegisterOtpController());
+  final registerControl = Get.put(RegisterController());
+
   final TextEditingController _otpControler = TextEditingController();
   final TextEditingController _createControler = TextEditingController();
   final TextEditingController _confirmControler = TextEditingController();
@@ -69,20 +74,25 @@ class VerificationScreen extends StatelessWidget {
                             fontSize: 9.sp,
                             fontWeight: FontWeight.w400),
                         patternList: [
-                          EasyRichTextPattern(
-                              targetString: 'Terms & Conditions',
-                              style: const TextStyle(
-                                  color: textBlueColor,
-                                  fontWeight: FontWeight.w600),
-                              recognizer: TapGestureRecognizer()
-                                ..onTap = () {}),
+                          // EasyRichTextPattern(
+                          //     targetString: 'Request new one',
+                          //     style: const TextStyle(
+                          //         color: textBlueColor,
+                          //         fontWeight: FontWeight.w600),
+                          //     recognizer: TapGestureRecognizer()
+                          //       ..onTap = () {
+                                  
+                          //       }),
                           EasyRichTextPattern(
                               targetString: 'Request new one',
                               style: const TextStyle(
                                   color: textBlueColor,
                                   fontWeight: FontWeight.w600),
                               recognizer: TapGestureRecognizer()
-                                ..onTap = () {}),
+                                ..onTap = () {
+                                  
+                                  registerApiControl.getRegisterOtp(name: registerControl.nameControl, email: registerControl.emailControl, phone: registerControl.phoneControl);
+                                }),
                         ],
                       ),
                     ),
