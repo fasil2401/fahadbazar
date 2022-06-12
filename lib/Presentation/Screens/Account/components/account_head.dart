@@ -32,7 +32,7 @@ class AccountHead extends StatelessWidget {
               'Hi,',
               style: TextStyle(
                 fontFamily: 'Rubik',
-                fontSize: 19.sp,
+                fontSize: 15.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -42,7 +42,7 @@ class AccountHead extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 fontFamily: 'Rubik',
-                fontSize: 22.sp,
+                fontSize: 18.sp,
                 fontWeight: FontWeight.w500,
               ),
             ),
@@ -59,7 +59,7 @@ class AccountHead extends StatelessWidget {
               '8590385573',
               style: TextStyle(
                 fontFamily: 'Rubik',
-                fontSize: 13.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w400,
               ),
             ),

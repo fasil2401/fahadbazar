@@ -3,12 +3,14 @@ import 'package:fahadbazar/Presentation/Screens/Addresses/addresses.dart';
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
 import 'package:fahadbazar/Presentation/Screens/Main_screen/main_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dart';
+import 'package:fahadbazar/Presentation/Screens/Orders/my_order.dart';
 import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
 import 'package:fahadbazar/Presentation/Screens/Reset_password/reset_password.dart';
 import 'package:fahadbazar/Presentation/Screens/Single%20Page/single_page.dart';
 import 'package:fahadbazar/Presentation/Screens/Splash_screen/splash_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/cart%20screen/cart.dart';
 import 'package:fahadbazar/Presentation/Screens/product%20list/product_list.dart';
+import 'package:fahadbazar/Presentation/Screens/support/support_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -64,6 +66,12 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/add_address', page: ()=> AddAddress(),
+            transition: Transition.cupertino
+            ),
+             GetPage(name: '/support', page: ()=> SupportScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/orders', page: ()=> OrderListScreen(),
             transition: Transition.cupertino
             ),
             ],
