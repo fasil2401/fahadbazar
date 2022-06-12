@@ -1,7 +1,9 @@
+import 'package:fahadbazar/Presentation/Screens/Aboutus/about.dart';
 import 'package:fahadbazar/Presentation/Screens/Add%20Address/add_address.dart';
 import 'package:fahadbazar/Presentation/Screens/Addresses/addresses.dart';
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
 import 'package:fahadbazar/Presentation/Screens/Main_screen/main_screen.dart';
+import 'package:fahadbazar/Presentation/Screens/Notification/notification_inner.dart';
 import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dart';
 import 'package:fahadbazar/Presentation/Screens/Orders/my_order.dart';
 import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
@@ -72,6 +74,12 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/orders', page: ()=> OrderListScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/notification', page: ()=> NotificationInnerScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/about', page: ()=> AboutScreen(),
             transition: Transition.cupertino
             ),
             ],
