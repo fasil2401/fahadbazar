@@ -1,6 +1,8 @@
 import 'package:fahadbazar/Presentation/Screens/Aboutus/about.dart';
 import 'package:fahadbazar/Presentation/Screens/Add%20Address/add_address.dart';
+import 'package:fahadbazar/Presentation/Screens/Addresses/address_empty.dart';
 import 'package:fahadbazar/Presentation/Screens/Addresses/addresses.dart';
+import 'package:fahadbazar/Presentation/Screens/Edit%20Profile/edit_profile.dart';
 import 'package:fahadbazar/Presentation/Screens/Login_page/login.dart';
 import 'package:fahadbazar/Presentation/Screens/Main_screen/main_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/Notification/notification_inner.dart';
@@ -64,7 +66,11 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/cart', page: ()=> CartScreen(),
             transition: Transition.cupertino
             ),
+            
             GetPage(name: '/address', page: ()=> AddressScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/addressempty', page: ()=> AddressEmptyScreen(),
             transition: Transition.cupertino
             ),
             GetPage(name: '/add_address', page: ()=> AddAddress(),
@@ -80,6 +86,9 @@ class MyApp extends StatelessWidget {
             transition: Transition.cupertino
             ),
             GetPage(name: '/about', page: ()=> AboutScreen(),
+            transition: Transition.cupertino
+            ),
+            GetPage(name: '/editprofile', page: ()=> EditProfileScreen(),
             transition: Transition.cupertino
             ),
             ],
