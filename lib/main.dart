@@ -10,6 +10,7 @@ import 'package:fahadbazar/Presentation/Screens/OTPverification/verification.dar
 import 'package:fahadbazar/Presentation/Screens/Orders/my_order.dart';
 import 'package:fahadbazar/Presentation/Screens/Register_page/register.dart';
 import 'package:fahadbazar/Presentation/Screens/Reset_password/reset_password.dart';
+import 'package:fahadbazar/Presentation/Screens/Search%20page/search_page.dart';
 import 'package:fahadbazar/Presentation/Screens/Single%20Page/single_page.dart';
 import 'package:fahadbazar/Presentation/Screens/Splash_screen/splash_screen.dart';
 import 'package:fahadbazar/Presentation/Screens/cart%20screen/cart.dart';
@@ -18,6 +19,8 @@ import 'package:fahadbazar/Presentation/Screens/support/support_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import 'Presentation/Screens/cart screen/cart_empty.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,6 +60,9 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/main', page: () => MainScreen(),
             transition: Transition.cupertino
             ),
+            GetPage(name: '/search', page: () => SearchScreen(),
+            transition: Transition.cupertino
+            ),
             GetPage(name: '/products', page: ()=> ProductList(),
             transition: Transition.cupertino
             ),
@@ -66,7 +72,9 @@ class MyApp extends StatelessWidget {
             GetPage(name: '/cart', page: ()=> CartScreen(),
             transition: Transition.cupertino
             ),
-            
+            GetPage(name: '/cartempty', page: ()=> CartEmptyScreen(),
+            transition: Transition.cupertino
+            ),
             GetPage(name: '/address', page: ()=> AddressScreen(),
             transition: Transition.cupertino
             ),

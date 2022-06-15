@@ -11,8 +11,8 @@ class TopCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LimitedBox(
-      maxHeight: 14.h,
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.18,
       child: ListView.separated(
       shrinkWrap: true,
       physics: BouncingScrollPhysics(),

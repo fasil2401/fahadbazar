@@ -12,8 +12,8 @@ import '../../Components/appbar_inner.dart';
 import '../../Components/positioned_bitton.dart';
 import '../../constants/colors.dart';
 
-class AddressEmptyScreen extends StatelessWidget {
-  const AddressEmptyScreen({Key? key}) : super(key: key);
+class CartEmptyScreen extends StatelessWidget {
+  const CartEmptyScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class AddressEmptyScreen extends StatelessWidget {
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(56),
         child: AppBarInner(
-          title: 'Addresses',
+          title: 'Cart',
           visible: false,
           cart: false,
         ),
@@ -35,11 +35,11 @@ class AddressEmptyScreen extends StatelessWidget {
         children: [
           Center(
             child: SizedBox(
-              child: Image.asset('assets/images/address_empty.png'),
+              child: Image.asset('assets/images/cart_empty.png'),
             ),
           ),
           Text(
-            'No addresses\nAdded',
+            'Your cart is\nEmpty!!',
             textAlign: TextAlign.center,
             style: TextStyle(
                 fontFamily: 'Rubik',
@@ -68,7 +68,7 @@ class AddressEmptyScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)),
                     primary: Colors.transparent),
                 child: Text(
-                  'Add address',
+                  'Start shopping',
                   style: TextStyle(
                       fontFamily: "Rubik",
                       fontSize: 12.sp,

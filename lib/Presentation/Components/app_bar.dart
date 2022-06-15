@@ -30,9 +30,14 @@ class FahadAppBar extends StatelessWidget {
       title: title,
       centerTitle: true,
       actions: [
-        Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 4.w),
-          child: SvgPicture.asset('assets/icons/appBar/search_appBar.svg', height: 22,),
+        GestureDetector(
+           onTap: (){
+              Get.toNamed('/search');
+            },
+          child: Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 4.w),
+            child: SvgPicture.asset('assets/icons/appBar/search_appBar.svg', height: 22,),
+          ),
         ),
         GestureDetector(
            onTap: (){

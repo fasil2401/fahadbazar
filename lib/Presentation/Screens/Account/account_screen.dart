@@ -50,7 +50,7 @@ class ProfileScreen extends StatelessWidget {
               commonHeight2,
              const InformationTile(title: 'Support', url: 'assets/icons/account/support.svg',route: '/support',),
              commonHeight2,
-             const InformationTile(title: 'Share the app', url: 'assets/icons/account/share.svg',),
+             const InformationTile(title: 'Share the app', url: 'assets/icons/account/share.svg', route: '/cartempty',),
              commonHeight2,
              const InformationTile(title: 'About us', url: 'assets/icons/account/about.svg',route: '/about',),
              commonHeight2,
