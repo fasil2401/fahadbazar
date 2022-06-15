@@ -4,6 +4,7 @@ import 'package:fahadbazar/Presentation/constants/paddings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Components/product_slide.dart';
@@ -52,10 +53,15 @@ class SearchScreen extends StatelessWidget {
                   ),
                 ),
                   ),
-                  Padding(
-                     padding: const EdgeInsets.only(left: 15),
-                    child: Icon(Icons.close,
-                    color: mutedColor,),
+                  GestureDetector(
+                    onTap: (){
+                      Get.back();
+                    },
+                    child: Padding(
+                       padding: const EdgeInsets.only(left: 15),
+                      child: Icon(Icons.close,
+                      color: mutedColor,),
+                    ),
                   ),
                  
                 ],

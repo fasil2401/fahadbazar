@@ -49,8 +49,8 @@ class NotificationScreen extends StatelessWidget {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.15),
-                            blurRadius: 40,
-                            spreadRadius: 5,
+                            blurRadius: 10,
+                            spreadRadius: 3,
                           ),
                         ],
                       ),
