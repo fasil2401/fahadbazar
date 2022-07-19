@@ -17,6 +17,8 @@ class LoginController extends GetxController {
       if (feedback != null) {
         message.value = feedback.msg;
         user = feedback.user;
+        print(user.name);
+        
       } else {
         message.value = 'failure';
       }
