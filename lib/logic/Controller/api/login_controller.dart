@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../../Services/User Preferences/user_preferences.dart';
 import '../../../Services/remote_login_services.dart';
 import '../../../models/login_register/login_model.dart';
 
@@ -17,7 +18,7 @@ class LoginController extends GetxController {
       if (feedback != null) {
         message.value = feedback.msg;
         user = feedback.user;
-        print(user.name);
+        
         
       } else {
         message.value = 'failure';
@@ -25,9 +26,14 @@ class LoginController extends GetxController {
     } finally {
       isLoading(false);
       if (message.value == 'Success') {
+        await UserSimplePreferences.setLogin('loggedIn');
+        await UserSimplePreferences.setUsername(user.name!);
+        await UserSimplePreferences.setUserId(user.id!);
+        await UserSimplePreferences.setUserEmail(user.email!);
+        await UserSimplePreferences.setUserPhone(user.phone!);
         Get.offNamed('/main');
       } else {
-        Get.snackbar('title', 'message');
+        Get.snackbar('Error', 'Please check your credentials');
       }
     }
   }

@@ -1,5 +1,6 @@
 
 import 'package:fahadbazar/Presentation/constants/heights.dart';
+import 'package:fahadbazar/Services/User%20Preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -37,7 +38,7 @@ class AccountHead extends StatelessWidget {
               ),
             ),
             Text(
-              'Angelina Jolie',
+              UserSimplePreferences.getUsername() ?? '',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -48,7 +49,7 @@ class AccountHead extends StatelessWidget {
             ),
             commonHeight1,
             Text(
-              'fasil2401@gmail.com',
+              UserSimplePreferences.getUserEmail() ?? '',
               style: TextStyle(
                 fontFamily: 'Rubik',
                 fontSize: 12.sp,
@@ -56,7 +57,7 @@ class AccountHead extends StatelessWidget {
               ),
             ),
             Text(
-              '8590385573',
+              UserSimplePreferences.getUserPhone() ?? '',
               style: TextStyle(
                 fontFamily: 'Rubik',
                 fontSize: 12.sp,

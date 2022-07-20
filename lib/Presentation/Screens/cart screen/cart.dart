@@ -180,27 +180,7 @@ class CartScreen extends StatelessWidget {
                             ],
                           ),
                           commonHeight2,
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                child: AddressDetails(
-                                  type: 'Office',
-                                ),
-                              ),
-                              Radio<Address>(
-                                fillColor: MaterialStateColor.resolveWith(
-                                    (states) => textBlueColor),
-                                focusColor: MaterialStateColor.resolveWith(
-                                    (states) => textBlueColor),
-                                value: Address.office,
-                                groupValue: _address,
-                                onChanged: (value) {
-                                  _address = value!;
-                                },
-                              ),
-                            ],
-                          ),
+                         
                         ],
                       ),
                     ),

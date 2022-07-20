@@ -17,12 +17,20 @@ import 'package:fahadbazar/Presentation/Screens/cart%20screen/cart.dart';
 import 'package:fahadbazar/Presentation/Screens/product%20list/product_list.dart';
 import 'package:fahadbazar/Presentation/Screens/support/support_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import 'Presentation/Screens/cart screen/cart_empty.dart';
+import 'Services/User Preferences/user_preferences.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserSimplePreferences.init();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 

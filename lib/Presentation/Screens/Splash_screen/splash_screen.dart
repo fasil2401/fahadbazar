@@ -1,4 +1,5 @@
 import 'package:fahadbazar/Presentation/constants/colors.dart';
+import 'package:fahadbazar/Services/User%20Preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -13,9 +14,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    isLoggedIn = UserSimplePreferences.getLogin() ?? '';
     checkIn();
     super.initState();
   }
+  String isLoggedIn = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +44,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
  Future <void>checkIn() async{
    await Future.delayed(Duration(seconds: 2));
-   Get.offNamed('/login');
+    if(isLoggedIn == 'loggedIn'){
+      Get.offAllNamed('/main');
+   print(UserSimplePreferences.getUserPhone());
+  } else{
+    Get.offAllNamed('/login');
   }
+ }
 }

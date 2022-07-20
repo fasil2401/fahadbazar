@@ -130,22 +130,7 @@ class AddAddress extends StatelessWidget {
                           radioText(sw, 'Home')
                         ],
                       ),
-                      Row(
-                        children: [
-                          Radio<Address>(
-                            fillColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            focusColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            value: Address.office,
-                            groupValue: _address,
-                            onChanged: (value) {
-                              _address = value!;
-                            },
-                          ),
-                          radioText(sw, 'Office')
-                        ],
-                      ),
+                      
                       Row(
                         children: [
                           Radio<Address>(

@@ -1,2 +1,2 @@
 enum Payment { cash, online }
-enum Address { home, office, work }
+enum Address { home, work }

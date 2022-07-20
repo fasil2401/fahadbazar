@@ -3,6 +3,7 @@ import 'package:fahadbazar/Presentation/constants/border_radius.dart';
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
 import 'package:fahadbazar/Presentation/constants/paddings.dart';
+import 'package:fahadbazar/Services/User%20Preferences/user_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -104,7 +105,7 @@ class DrawerCustom extends StatelessWidget {
             SizedBox(
               width: 34.w,
               child: Text(
-                'Angelina Jolie',
+                UserSimplePreferences.getUsername() ?? '',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -117,7 +118,7 @@ class DrawerCustom extends StatelessWidget {
             SizedBox(
               width: 32.w,
               child: Text(
-                'fasil2401@gmail.com',
+                UserSimplePreferences.getUserEmail() ?? '',
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
