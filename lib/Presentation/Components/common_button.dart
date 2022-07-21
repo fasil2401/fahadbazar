@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../logic/Controller/api/Address/address_controller.dart';
 import '../constants/colors.dart';
 
-
+final addressController = Get.put(AddressController());
 class CommonButton extends StatelessWidget {
   final String text;
   final String check;
@@ -32,7 +33,9 @@ class CommonButton extends StatelessWidget {
           onPressed: () {
             if(check == 'add'){
               Get.toNamed('/add_address');
-            }
+            }else if(check == 'addAddress'){
+              addressController.createAddress();
+              }
           },
           style: ElevatedButton.styleFrom(
               onPrimary: mutedBlueColor,

@@ -5,13 +5,17 @@ import 'package:fahadbazar/Presentation/Screens/cart%20screen/components/cart_te
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
 import 'package:fahadbazar/Presentation/constants/paddings.dart';
+import 'package:fahadbazar/logic/Controller/api/Address/address_controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../logic/enums/cart_enum.dart';
 
 class AddAddress extends StatelessWidget {
+
+  final addressController = Get.put(AddressController());
   AddAddress({Key? key}) : super(key: key);
   Address _address = Address.home;
   @override
@@ -36,6 +40,9 @@ class AddAddress extends StatelessWidget {
                 children: [
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setName(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter Your Name',
                     placeholderStyle: textFieldHintStyle(),
@@ -44,6 +51,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setPhone(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your phone number',
                     placeholderStyle: textFieldHintStyle(),
@@ -52,6 +62,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setEmail(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your mail',
                     placeholderStyle: textFieldHintStyle(),
@@ -61,6 +74,9 @@ class AddAddress extends StatelessWidget {
                   CupertinoTextField(
                     maxLines: 5,
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setAddress(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your address',
                     placeholderStyle: textFieldHintStyle(),
@@ -69,6 +85,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setLandmark(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your landmark',
                     placeholderStyle: textFieldHintStyle(),
@@ -77,6 +96,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setPincode(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your pincode',
                     placeholderStyle: textFieldHintStyle(),
@@ -85,6 +107,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setCity(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your city',
                     placeholderStyle: textFieldHintStyle(),
@@ -93,6 +118,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setDistrict(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your district',
                     placeholderStyle: textFieldHintStyle(),
@@ -101,6 +129,9 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   CupertinoTextField(
                     decoration: textFieldDecoration(),
+                    onChanged: (value) {
+                      addressController.setState(value);
+                    },
                     style: TextStyle(fontSize: 16.sp),
                     placeholder: 'Enter your state',
                     placeholderStyle: textFieldHintStyle(),
@@ -156,7 +187,7 @@ class AddAddress extends StatelessWidget {
               ),
             ),
           ),
-          PositionedButton(text: 'Save', sw: sw)
+          PositionedButton(text: 'Save', sw: sw, check: 'addAddress',)
         ],
       ),
     );

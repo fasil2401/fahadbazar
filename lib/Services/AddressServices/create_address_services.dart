@@ -18,7 +18,7 @@ class RemoteServicesCreateAddress {
 
   Future<dynamic> createAddress(String endpoint) async{
     try {
-      Response response = await _dio!.post(endpoint);
+      Response response = await _dio!.get(endpoint);
       if (response.statusCode == 200) {
         var decode =jsonDecode(response.data);
         if(decode['sts'] == '00'){
