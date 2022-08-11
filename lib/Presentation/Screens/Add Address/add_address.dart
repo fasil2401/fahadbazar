@@ -1,4 +1,5 @@
 import 'package:fahadbazar/Presentation/Components/appbar_inner.dart';
+import 'package:fahadbazar/Presentation/Components/common_button.dart';
 import 'package:fahadbazar/Presentation/Components/positioned_bitton.dart';
 import 'package:fahadbazar/Presentation/Components/section_head.dart';
 import 'package:fahadbazar/Presentation/Screens/cart%20screen/components/cart_text.dart';
@@ -145,39 +146,41 @@ class AddAddress extends StatelessWidget {
                   commonHeight2,
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Radio<Address>(
-                            fillColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            focusColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            value: Address.home,
-                            groupValue: _address,
-                            onChanged: (value) {
-                              _address = value!;
-                            },
-                          ),
-                          radioText(sw, 'Home')
-                        ],
-                      ),
+                      // Row(
+                      //   children: [
+                      //     Radio<Address>(
+                      //       fillColor: MaterialStateColor.resolveWith(
+                      //           (states) => textBlueColor),
+                      //       focusColor: MaterialStateColor.resolveWith(
+                      //           (states) => textBlueColor),
+                      //       value: Address.home,
+                      //       groupValue: _address,
+                      //       onChanged: (value) {
+                      //         _address = value!;
+                      //       },
+                      //     ),
+                      //     radioText(sw, 'Home')
+                      //   ],
+                      // ),
                       
-                      Row(
-                        children: [
-                          Radio<Address>(
-                            fillColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            focusColor: MaterialStateColor.resolveWith(
-                                (states) => textBlueColor),
-                            value: Address.work,
-                            groupValue: _address,
-                            onChanged: (value) {
-                              _address = value!;
-                            },
-                          ),
-                          radioText(sw, 'Work')
-                        ],
-                      )
+                      // Row(
+                      //   children: [
+                      //     Radio<Address>(
+                      //       fillColor: MaterialStateColor.resolveWith(
+                      //           (states) => textBlueColor),
+                      //       focusColor: MaterialStateColor.resolveWith(
+                      //           (states) => textBlueColor),
+                      //       value: Address.work,
+                      //       groupValue: _address,
+                      //       onChanged: (value) {
+                      //         _address = value!;
+                      //       },
+                      //     ),
+                      //     radioText(sw, 'Work')
+                      //   ],
+                      // )
+                      addressRadioButton(0, 'Home', sw),
+                      addressRadioButton(1, 'Work', sw),
                     ],
                   ),
                   commonHeight5,
@@ -221,4 +224,22 @@ class AddAddress extends StatelessWidget {
         fontWeight: FontWeight.w200,
         fontSize: 14.sp);
   }
+
+  Row addressRadioButton(int btnIndex, String title, double sw) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        GetBuilder<AddressController>(
+          builder: (_) => Radio(
+              activeColor: Colors.blue,
+              value: addressController.addressTypes[btnIndex],
+              groupValue: addressController.type,
+              onChanged: (value) =>
+                  addressController.onClickRadioButton(value)),
+        ),
+        radioText(sw, title)
+      ],
+    );
+  }
 }
+

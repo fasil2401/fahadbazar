@@ -18,7 +18,6 @@ class RemoteServicesVerify {
 
   Future<dynamic> getVerify(String endpoint) async{
     try {
-      // Response response = await _dio!.post(endpoint, data: {'emailormobile' : 8590385573, 'password' : 43212401});
       Response response = await _dio!.post(endpoint);
       if (response.statusCode == 200) {
         var decode =jsonDecode(response.data);

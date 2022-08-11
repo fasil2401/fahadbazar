@@ -19,51 +19,70 @@ class AddressController extends GetxController {
   var address = ''.obs;
   var district = ''.obs;
   var state = ''.obs;
-  var type = 'Work'.obs;
+  var type = ''.obs;
 
-  setName(String name){
+  setName(String name) {
     this.name.value = name;
   }
-  setPhone(String phone){
+
+  setPhone(String phone) {
     this.phone.value = phone;
   }
-  setEmail(String email){
+
+  setEmail(String email) {
     this.email.value = email;
   }
-  setMobile(String mobile){
+
+  setMobile(String mobile) {
     this.mobile.value = mobile;
   }
-  setPincode(String pincode){
+
+  setPincode(String pincode) {
     this.pincode.value = pincode;
   }
-  setLandmark(String landmark){
+
+  setLandmark(String landmark) {
     this.landmark.value = landmark;
   }
-  setCity(String city){
+
+  setCity(String city) {
     this.city.value = city;
   }
-  setAddress(String address){
+
+  setAddress(String address) {
     this.address.value = address;
   }
-  setDistrict(String district){
+
+  setDistrict(String district) {
     this.district.value = district;
   }
-  setState(String state){
+
+  setState(String state) {
     this.state.value = state;
   }
-  setType(String type){
+
+  setType(String type) {
     this.type.value = type;
   }
 
+  final List<String> addressTypes = ["Home", "Work"];
+  void onClickRadioButton(value) {
+    print(value);
+    type.value = value;
+    update();
+  }
+
   void createAddress() async {
+    int userId = UserSimplePreferences.getUserId() ?? 0;
     try {
       isLoading(true);
       var feedback = await RemoteServicesCreateAddress().createAddress(
+          'https://fahadbazar.com/api/address/create?userid=${userId}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
+      print(
           'https://fahadbazar.com/api/address/create?userid=${UserSimplePreferences.getUserId()}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
-          print('https://fahadbazar.com/api/address/create?userid=${UserSimplePreferences.getUserId()}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
 
       if (feedback != null) {
-        message.value = feedback.msg; 
+        message.value = feedback.msg;
         status.value = feedback.sts;
       } else {
         message.value = 'failure';
@@ -73,7 +92,6 @@ class AddressController extends GetxController {
       if (status.value == '01') {
         print('=================');
         Get.snackbar('Success', 'Address created successfully');
-      
       } else {
         Get.snackbar('Warning', 'Something went Wrong');
       }
