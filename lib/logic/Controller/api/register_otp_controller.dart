@@ -1,20 +1,21 @@
 import 'package:fahadbazar/Services/remote_register_services.dart';
+import 'package:fahadbazar/constants/api_const.dart';
 import 'package:get/get.dart';
 
-import '../../../Services/remote_login_services.dart';
-import '../../../models/login_register/login_model.dart';
 
 class RegisterOtpController extends GetxController {
-  
   var isLoading = true.obs;
   var otp = ''.obs;
 
-
-  void getRegisterOtp({required String name, required String email, required String phone,}) async {
+  void getRegisterOtp({
+    required String name,
+    required String email,
+    required String phone,
+  }) async {
     try {
       isLoading(true);
       var feedback = await RemoteServicesRegisterOtp().getRegisterOtp(
-          'https://fahadbazar.com/api/customer/register/sendotp?name=${name}&number=${phone}&email=${email}');
+          '${ApiConstants.otpVerify}?name=${name}&number=${phone}&email=${email}');
       if (feedback != null) {
         otp.value = feedback.otp;
       } else {

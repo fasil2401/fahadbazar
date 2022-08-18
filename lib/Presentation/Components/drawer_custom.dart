@@ -33,53 +33,83 @@ class DrawerCustom extends StatelessWidget {
               ),
             ),
             commonHeight5,
-            const DrawerTile(
+            DrawerTile(
               title: 'My orders',
               iconUrl: 'assets/icons/drawer/orders.svg',
               route: 'orders',
+              onTap: () {
+                Get.back();
+                Get.toNamed('orders');
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'My Address',
               iconUrl: 'assets/icons/drawer/my_address.svg',
               route: 'address',
+              onTap: () {
+                Get.back();
+                Get.toNamed('address');
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'Select pincode',
               iconUrl: 'assets/icons/drawer/select_pincode.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'Logout',
               iconUrl: 'assets/icons/drawer/logout.svg',
+              onTap: () async {
+                await UserSimplePreferences.setLogin('false');
+                await Get.offAllNamed('/login');
+              },
             ),
             commonHeight3,
             const Divider(),
             commonHeight3,
-            const DrawerTile(
+            DrawerTile(
               title: 'Contact Us',
               iconUrl: 'assets/icons/drawer/contactus.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'About us',
               iconUrl: 'assets/icons/drawer/about.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'Terms & conditions',
               iconUrl: 'assets/icons/drawer/terms.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'Privacy policy',
               iconUrl: 'assets/icons/drawer/privacy.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
             commonHeight4,
-            const DrawerTile(
+            DrawerTile(
               title: 'Return policy',
               iconUrl: 'assets/icons/drawer/return.svg',
+              onTap: () {
+                Get.back();
+              },
             ),
           ],
         ),
@@ -139,17 +169,19 @@ class DrawerTile extends StatelessWidget {
   final String title;
   final String iconUrl;
   final String route;
-  const DrawerTile({Key? key, required this.title, required this.iconUrl,  this.route = ''})
-      : super(key: key);
+  final Function() onTap;
+  const DrawerTile({
+    Key? key,
+    required this.title,
+    required this.iconUrl,
+    this.route = '',
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Get.back();
-        Get.toNamed('/$route');
-        
-      },
+      onTap: onTap,
       child: Row(
         children: [
           SvgPicture.asset(iconUrl),

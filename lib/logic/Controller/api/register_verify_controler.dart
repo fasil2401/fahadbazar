@@ -1,4 +1,5 @@
 import 'package:fahadbazar/Services/remote_verify_register.dart';
+import 'package:fahadbazar/constants/api_const.dart';
 import 'package:fahadbazar/logic/Controller/api/register_otp_controller.dart';
 import 'package:get/get.dart';
 
@@ -13,15 +14,18 @@ class VerifyController extends GetxController {
   // ignore: prefer_typing_uninitialized_variables
   var feedback;
   void getVerify(
-      {required String name, required String password, required String phone, required String email,required String otp}) async {
+      {required String name,
+      required String password,
+      required String phone,
+      required String email,
+      required String otp}) async {
     try {
       isLoading(true);
-      if(otpCOntrol.otp.value == otp){
-         feedback = await RemoteServicesVerify().getVerify(
-          'https://fahadbazar.com/api/customer/register?name=${name}&number=${phone}&email=${email}&password=${password}');
-      }
-      else{
-         feedback = null;
+      if (otpCOntrol.otp.value == otp) {
+        feedback = await RemoteServicesVerify().getVerify(
+            '${ApiConstants.register}?name=${name}&number=${phone}&email=${email}&password=${password}');
+      } else {
+        feedback = null;
       }
       if (feedback != null) {
         message.value = feedback.msg;

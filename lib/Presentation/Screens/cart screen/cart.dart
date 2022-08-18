@@ -25,7 +25,6 @@ import 'components/cart_items.dart';
 class CartScreen extends StatelessWidget {
   CartScreen({Key? key}) : super(key: key);
   Payment _payment = Payment.cash;
-  Address _address = Address.home;
   @override
   Widget build(BuildContext context) {
     final double sw = MediaQuery.of(context).size.width;
@@ -166,17 +165,17 @@ class CartScreen extends StatelessWidget {
                                   type: 'Home',
                                 ),
                               ),
-                              Radio<Address>(
-                                fillColor: MaterialStateColor.resolveWith(
-                                    (states) => textBlueColor),
-                                focusColor: MaterialStateColor.resolveWith(
-                                    (states) => textBlueColor),
-                                value: Address.home,
-                                groupValue: _address,
-                                onChanged: (value) {
-                                  _address = value!;
-                                },
-                              )
+                              // Radio<Address>(
+                              //   fillColor: MaterialStateColor.resolveWith(
+                              //       (states) => textBlueColor),
+                              //   focusColor: MaterialStateColor.resolveWith(
+                              //       (states) => textBlueColor),
+                              //   value: Address.home,
+                              //   groupValue: _address,
+                              //   onChanged: (value) {
+                              //     _address = value!;
+                              //   },
+                              // )
                             ],
                           ),
                           commonHeight2,
@@ -213,7 +212,8 @@ class CartScreen extends StatelessWidget {
               ),
             ),
           ),
-          PositionedButton(sw: sw, text: 'Buy now',),
+          PositionedButton(sw: sw, text: 'Buy now', onPressed: () {
+          }),
           
         ],
       ),

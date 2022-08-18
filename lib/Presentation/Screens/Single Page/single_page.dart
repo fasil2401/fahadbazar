@@ -75,7 +75,7 @@ class SinglePage extends StatelessWidget {
                 commonHeight4,
                 addToCartButton(),
                 commonHeight2,
-                const CommonButton(text: 'Buy Now',),
+                 CommonButton(text: 'Buy Now', onPressed: () {}),
                 commonHeight5
               ],
             ),

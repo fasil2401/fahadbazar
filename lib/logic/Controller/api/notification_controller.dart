@@ -1,4 +1,5 @@
 import 'package:fahadbazar/Services/NotificationServices/notification_remote_services.dart';
+import 'package:fahadbazar/constants/api_const.dart';
 import 'package:get/get.dart';
 
 class NotificationController extends GetxController {
@@ -10,7 +11,7 @@ class NotificationController extends GetxController {
     try {
       isLoading(true);
       var feedback = await RemoteServicesNotifications().getNotifications(
-          'notifications');
+          ApiConstants.notifications);
       if (feedback != null) {
         message.value = feedback.msg;
         notifications.value = feedback.notifications;

@@ -101,6 +101,7 @@ class EditProfileScreen extends StatelessWidget {
             sw: sw,
             text: 'Save changes',
             check: '',
+            onPressed: () {},
           )
         ],
       ),

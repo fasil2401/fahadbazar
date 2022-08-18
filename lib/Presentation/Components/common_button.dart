@@ -6,11 +6,16 @@ import '../../logic/Controller/api/Address/address_controller.dart';
 import '../constants/colors.dart';
 
 final addressController = Get.put(AddressController());
+
 class CommonButton extends StatelessWidget {
   final String text;
   final String check;
+  final Function() onPressed;
   const CommonButton({
-    Key? key,required this.text, this.check = 'no'
+    Key? key,
+    required this.text,
+    this.check = 'no',
+    required this.onPressed,
   }) : super(key: key);
 
   @override
@@ -30,13 +35,7 @@ class CommonButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(2),
         child: ElevatedButton(
-          onPressed: () {
-            if(check == 'add'){
-              Get.toNamed('/add_address');
-            }else if(check == 'addAddress'){
-              addressController.createAddress();
-              }
-          },
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
               onPrimary: mutedBlueColor,
               //side: BorderSide(width: 3.0, color: Colors.transparent,),
@@ -46,9 +45,7 @@ class CommonButton extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-                fontFamily: "Rubik",
-                fontSize: 14.sp,
-                color: Colors.white),
+                fontFamily: "Rubik", fontSize: 14.sp, color: Colors.white),
           ),
         ),
       ),

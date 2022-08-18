@@ -1,3 +1,4 @@
+import 'package:fahadbazar/constants/api_const.dart';
 import 'package:get/get.dart';
 
 import '../../../Services/User Preferences/user_preferences.dart';
@@ -14,12 +15,10 @@ class LoginController extends GetxController {
     try {
       isLoading(true);
       var feedback = await RemoteServicesLogin().getLogin(
-          'customer/login?emailormobile=${emailorphone}&password=${password}');
+          '${ApiConstants.login}?emailormobile=${emailorphone}&password=${password}');
       if (feedback != null) {
         message.value = feedback.msg;
         user = feedback.user;
-        
-        
       } else {
         message.value = 'failure';
       }

@@ -1,10 +1,21 @@
+import 'package:fahadbazar/Presentation/Screens/Addresses/addresses.dart';
 import 'package:fahadbazar/Services/AddressServices/create_address_services.dart';
 import 'package:fahadbazar/Services/NotificationServices/notification_remote_services.dart';
+import 'package:fahadbazar/Services/common_api_services/api_services.dart';
+import 'package:fahadbazar/constants/api_const.dart';
+import 'package:fahadbazar/models/Address/address_list_model.dart';
+import 'package:fahadbazar/models/common_response_model.dart';
 import 'package:get/get.dart';
 
 import '../../../../Services/User Preferences/user_preferences.dart';
 
 class AddressController extends GetxController {
+  @override
+  void onInit() {
+    super.onInit();
+    getAddressList();
+  }
+
   var isLoading = true.obs;
   var message = ''.obs;
   var status = ''.obs;
@@ -66,20 +77,18 @@ class AddressController extends GetxController {
   }
 
   final List<String> addressTypes = ["Home", "Work"];
-  void onClickRadioButton(value) {
+  onClickRadioButton(value) {
     print(value);
     type.value = value;
     update();
   }
 
-  void createAddress() async {
+  createAddress() async {
     int userId = UserSimplePreferences.getUserId() ?? 0;
     try {
-      isLoading(true);
+      isLoading.value = true;
       var feedback = await RemoteServicesCreateAddress().createAddress(
-          'https://fahadbazar.com/api/address/create?userid=${userId}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
-      print(
-          'https://fahadbazar.com/api/address/create?userid=${UserSimplePreferences.getUserId()}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
+          '${ApiConstants.createAddress}?userid=${userId}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
 
       if (feedback != null) {
         message.value = feedback.msg;
@@ -88,10 +97,65 @@ class AddressController extends GetxController {
         message.value = 'failure';
       }
     } finally {
-      isLoading(false);
       if (status.value == '01') {
+        isLoading.value = false;
         print('=================');
-        Get.snackbar('Success', 'Address created successfully');
+        Get.snackbar('Success', '${message.value}');
+        Get.off(() => AddressScreen());
+        getAddressList();
+      } else {
+        Get.snackbar('Warning', 'Something went Wrong');
+      }
+    }
+  }
+
+  getAddressList() async {
+    int userId = UserSimplePreferences.getUserId() ?? 0;
+    try {
+      isLoading.value = true;
+      var feedback = await ApiServices()
+          .getfetchData('${ApiConstants.getAddress}?userid=${userId}');
+      if (feedback != null) {
+        // print(feedback.address);
+        var result = AddressListModel.fromJson(feedback);
+        addressList.value = result.address;
+        message.value = result.msg;
+        status.value = result.sts;
+      } else {
+        message.value = 'failure';
+      }
+    } finally {
+      if (status.value == '01') {
+        isLoading.value = false;
+        print('=================');
+        Get.snackbar('Success', 'Address list fetched successfully');
+      } else {
+        Get.snackbar('Warning', 'Something went Wrong');
+      }
+    }
+  }
+
+  updateAddress(int id) async {
+    int userId = UserSimplePreferences.getUserId() ?? 0;
+    try {
+      isLoading.value = true;
+      var feedback = await ApiServices().postfetchData(
+          '${ApiConstants.upadateAddress}${id.toString()}?userid=${userId}&name=${name.value}&email=${email.value}&mobile=${mobile.value}&phone=${phone.value}&pincode=${pincode.value}&landmark=${landmark.value}&city=${city.value}&address=${address.value}&district=${district.value}&state=${state.value}&type=${type.value}');
+      if (feedback != null) {
+        // print(feedback.address);
+        var result = CommonResponseModel.fromJson(feedback);
+        message.value = result.msg;
+        status.value = result.sts;
+      } else {
+        message.value = 'failure';
+      }
+    } finally {
+      if (status.value == '01') {
+        isLoading.value = false;
+        print('=================');
+        Get.snackbar('Success', '${message.value}');
+        Get.off(() => AddressScreen());
+        getAddressList();
       } else {
         Get.snackbar('Warning', 'Something went Wrong');
       }

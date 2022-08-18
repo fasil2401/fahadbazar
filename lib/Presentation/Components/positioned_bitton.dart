@@ -6,9 +6,11 @@ import 'common_button.dart';
 class PositionedButton extends StatelessWidget {
   final String text;
   final String check;
+  final Function() onPressed;
   const PositionedButton({
     Key? key,required this.text,this.check = 'no',
     required this.sw,
+    required this.onPressed,
   }) : super(key: key);
 
   final double sw;
@@ -29,7 +31,7 @@ class PositionedButton extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: sw * 0.06),
-            child: CommonButton(text: text,check: check,),
+            child: CommonButton(text: text,check: check,onPressed: onPressed,),
           ),
         ),
       ),
