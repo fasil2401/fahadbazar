@@ -71,13 +71,13 @@ class SearchScreen extends StatelessWidget {
                   title: 'Best Sellers',
                 ),
                 commonHeight1,
-                const ProductSlider(),
+                // const ProductSlider(),
                 commonHeight3,
                   const SectionHeadText(
                   title: 'Top Categories',
                 ),
                 commonHeight2,
-                const TopCategories(),
+                // const TopCategories(),
                 
             ],
           ),

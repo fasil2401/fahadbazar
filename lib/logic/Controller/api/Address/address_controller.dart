@@ -99,7 +99,6 @@ class AddressController extends GetxController {
     } finally {
       if (status.value == '01') {
         isLoading.value = false;
-        print('=================');
         Get.snackbar('Success', '${message.value}');
         Get.off(() => AddressScreen());
         getAddressList();
@@ -127,7 +126,6 @@ class AddressController extends GetxController {
     } finally {
       if (status.value == '01') {
         isLoading.value = false;
-        print('=================');
         Get.snackbar('Success', 'Address list fetched successfully');
       } else {
         Get.snackbar('Warning', 'Something went Wrong');
@@ -152,7 +150,6 @@ class AddressController extends GetxController {
     } finally {
       if (status.value == '01') {
         isLoading.value = false;
-        print('=================');
         Get.snackbar('Success', '${message.value}');
         Get.off(() => AddressScreen());
         getAddressList();

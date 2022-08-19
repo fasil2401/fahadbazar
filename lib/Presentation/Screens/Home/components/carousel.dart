@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fahadbazar/constants/api_const.dart';
+import 'package:fahadbazar/models/Home%20Model/home_model.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -6,9 +8,12 @@ import '../../../constants/colors.dart';
 import '../../../constants/images.dart';
 
 class CarouselMain extends StatelessWidget {
-  const CarouselMain({
+  CarouselMain({
     Key? key,
+    required this.list,
   }) : super(key: key);
+
+  final List<dynamic> list;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +23,7 @@ class CarouselMain extends StatelessWidget {
         viewportFraction: 0.9,
         autoPlay: true,
       ),
-      items: imgList.map((i) {
+      items: list.map((i) {
         return Builder(
           builder: (BuildContext context) {
             return Container(
@@ -27,8 +32,8 @@ class CarouselMain extends StatelessWidget {
               decoration: BoxDecoration(
                   color: commonScaffoldBack,
                   image: DecorationImage(
-                      image: AssetImage(
-                        i,
+                      image: NetworkImage(
+                        '${ApiConstants.imageUrl}${i.image}',
                       ),
                       fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(24)),

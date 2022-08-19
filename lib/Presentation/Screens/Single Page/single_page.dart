@@ -71,7 +71,7 @@ class SinglePage extends StatelessWidget {
                   tail: false,
                 ),
                 commonHeight1,
-                const ProductSlider(),
+                // const ProductSlider(),
                 commonHeight4,
                 addToCartButton(),
                 commonHeight2,

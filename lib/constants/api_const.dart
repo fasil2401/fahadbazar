@@ -1,6 +1,6 @@
-
 class ApiConstants {
   static const baseUrl = 'https://fahadbazar.com/api/';
+  static const imageUrl = 'https://fahadbazar.com';
   static const login = 'customer/login';
   static const register = 'customer/register';
   static const checkEmail = 'check/customer/email';
@@ -10,4 +10,5 @@ class ApiConstants {
   static const createAddress = 'address/create';
   static const getAddress = 'address';
   static const upadateAddress = 'address/update/';
+  static const home = 'home';
 }
