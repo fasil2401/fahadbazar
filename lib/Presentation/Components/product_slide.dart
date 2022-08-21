@@ -1,6 +1,8 @@
+import 'package:fahadbazar/Presentation/Screens/Single%20Page/single_page.dart';
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/constants/api_const.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../constants/heights.dart';
@@ -44,7 +46,9 @@ class ProductSlider extends StatelessWidget {
           final offer =
               findOfferPercent(list[index].price, list[index].offerprice);
           return GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Get.to(() => SinglePage());
+            },
             child: Stack(
               children: [
                 SizedBox(
