@@ -6,15 +6,19 @@ import 'package:fahadbazar/Presentation/Screens/Single%20Page/components/product
 import 'package:fahadbazar/Presentation/constants/colors.dart';
 import 'package:fahadbazar/Presentation/constants/heights.dart';
 import 'package:fahadbazar/Presentation/constants/paddings.dart';
+import 'package:fahadbazar/logic/Controller/api/product_single_page_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../Components/common_button.dart';
 import 'components/product_name_row.dart';
 
 class SinglePage extends StatelessWidget {
-  SinglePage({Key? key}) : super(key: key);
+  SinglePage({Key? key, this.productId = 0}) : super(key: key);
+  int productId;
+
   final List<String> items = [
     'Item1',
     'Item2',
@@ -28,6 +32,8 @@ class SinglePage extends StatelessWidget {
   String? selectedValue;
   @override
   Widget build(BuildContext context) {
+    final productDetailsController =
+        Get.put(ProductSinglePageController(productId: productId));
     return Scaffold(
       appBar: const PreferredSize(
         preferredSize: Size.fromHeight(56),
@@ -46,25 +52,39 @@ class SinglePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const ProductNameRow(),
+                Obx(
+                  () => ProductNameRow(
+                    productName: productDetailsController.product.value.name,
+                  ),
+                ),
                 commonHeight1,
                 Row(
                   children: [
                     dropDownButton('Unit:'),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     dropDownButton('Qty:'),
                   ],
                 ),
                 commonHeight2,
-                const ProductNameText(title: 'MRP : ₹160'),
-                const OfferPrice(),
+                Obx(
+                  () => ProductNameText(
+                      title:
+                          'MRP : ₹${productDetailsController.product.value.offerprice}'),
+                ),
+                Obx(
+                  () => OfferPrice(
+                    price: productDetailsController.product.value.price,
+                  ),
+                ),
                 commonHeight3,
                 const SectionHeadText(
                   title: 'Quick overview',
                   tail: false,
                 ),
                 commonHeight1,
-                overviewText(),
+                overviewText(productDetailsController.product.value.desc),
                 commonHeight3,
                 const SectionHeadText(
                   title: 'Similar Products',
@@ -75,7 +95,7 @@ class SinglePage extends StatelessWidget {
                 commonHeight4,
                 addToCartButton(),
                 commonHeight2,
-                 CommonButton(text: 'Buy Now', onPressed: () {}),
+                CommonButton(text: 'Buy Now', onPressed: () {}),
                 commonHeight5
               ],
             ),
@@ -94,7 +114,7 @@ class SinglePage extends StatelessWidget {
           child: Text(
             hint,
             // overflow: TextOverflow.ellipsis,
-            style:const TextStyle(
+            style: const TextStyle(
                 fontSize: 14,
                 color: commonBlack,
                 fontFamily: 'Rubik',
@@ -150,9 +170,9 @@ class SinglePage extends StatelessWidget {
     );
   }
 
-  Text overviewText() {
+  Text overviewText(String text) {
     return Text(
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      text,
       style: TextStyle(fontFamily: 'Rubik', fontSize: 12.sp),
     );
   }

@@ -11,4 +11,5 @@ class ApiConstants {
   static const getAddress = 'address';
   static const upadateAddress = 'address/update/';
   static const home = 'home';
+  static const product = 'product/';
 }

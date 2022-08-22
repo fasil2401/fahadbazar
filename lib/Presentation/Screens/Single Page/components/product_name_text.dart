@@ -3,13 +3,9 @@ import 'package:sizer/sizer.dart';
 
 import '../../../constants/colors.dart';
 
-
 class ProductNameText extends StatelessWidget {
-
   final String title;
-  const ProductNameText({
-    Key? key,required this.title
-  }) : super(key: key);
+  const ProductNameText({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +22,17 @@ class ProductNameText extends StatelessWidget {
   }
 }
 
-
 class OfferPrice extends StatelessWidget {
   const OfferPrice({
     Key? key,
+    required this.price,
   }) : super(key: key);
+  final int price;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'MRP : ₹160',
+      'MRP : ₹${price}',
       maxLines: 1,
       overflow: TextOverflow.ellipsis,
       style: TextStyle(
@@ -47,4 +44,3 @@ class OfferPrice extends StatelessWidget {
     );
   }
 }
-

@@ -15,6 +15,7 @@ class ApiServices {
       Response response = await _dio!.get(endpoint);
       if (response.statusCode == 200) {
         var decode = jsonDecode(response.data);
+        print(decode);
         if (decode['sts'] == '00') {
           return null;
         } else {
@@ -28,14 +29,15 @@ class ApiServices {
   }
 
   Future postfetchData(String endpoint) async {
-    print(endpoint);
     try {
       Response response = await _dio!.post(endpoint);
       if (response.statusCode == 200) {
+        // print(response.data);
         var decode = jsonDecode(response.data);
         if (decode['sts'] == '00') {
           return null;
         } else {
+          // print('decodeeeeeee$decode');
           return decode;
         }
       }

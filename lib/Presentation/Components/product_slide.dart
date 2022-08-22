@@ -47,7 +47,7 @@ class ProductSlider extends StatelessWidget {
               findOfferPercent(list[index].price, list[index].offerprice);
           return GestureDetector(
             onTap: () {
-              Get.to(() => SinglePage());
+              Get.to(() => SinglePage(productId: list[index].id,));
             },
             child: Stack(
               children: [
