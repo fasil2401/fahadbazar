@@ -13,7 +13,7 @@ class SingleProductDetailsModel {
     required this.product,
     required this.units,
     required this.category,
-    required this.subCategory,
+    this.subCategory,
     required this.similarProducts,
   });
 
@@ -22,7 +22,7 @@ class SingleProductDetailsModel {
   Product product;
   List<Unit> units;
   String category;
-  String subCategory;
+  String? subCategory;
   List<Product> similarProducts;
 
   factory SingleProductDetailsModel.fromJson(Map<String, dynamic> json) =>
@@ -57,7 +57,7 @@ class Product {
     this.brandId,
     this.stockAvalible,
     required this.name,
-   required this.desc,
+    required this.desc,
     this.price,
     this.offerprice,
     this.bestSeller,

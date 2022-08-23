@@ -44,3 +44,41 @@ class CarouselMain extends StatelessWidget {
     );
   }
 }
+
+class CarouselSinglePage extends StatelessWidget {
+  CarouselSinglePage({
+    Key? key,
+    required this.list,
+  }) : super(key: key);
+
+  final List<dynamic> list;
+
+  @override
+  Widget build(BuildContext context) {
+    return CarouselSlider(
+      options: CarouselOptions(
+        height: 26.h,
+        viewportFraction: 0.9,
+        // autoPlay: true,
+      ),
+      items: list.map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+              width: MediaQuery.of(context).size.width,
+              margin: const EdgeInsets.symmetric(horizontal: 5.0),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  image: DecorationImage(
+                      image: NetworkImage(
+                        '${ApiConstants.imageUrl}/${i}',
+                      ),
+                      fit: BoxFit.contain),
+                  borderRadius: BorderRadius.circular(24)),
+            );
+          },
+        );
+      }).toList(),
+    );
+  }
+}

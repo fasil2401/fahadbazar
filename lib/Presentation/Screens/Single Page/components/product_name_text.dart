@@ -16,7 +16,7 @@ class ProductNameText extends StatelessWidget {
       style: TextStyle(
           color: textBlueColor,
           fontFamily: 'Rubik',
-          fontSize: 22.sp,
+          fontSize: 18.sp,
           fontWeight: FontWeight.w500),
     );
   }
@@ -39,7 +39,7 @@ class OfferPrice extends StatelessWidget {
           decoration: TextDecoration.lineThrough,
           color: mutedColor,
           fontFamily: 'Rubik',
-          fontSize: 16.sp,
+          fontSize: 14.sp,
           fontWeight: FontWeight.w500),
     );
   }

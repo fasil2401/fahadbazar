@@ -9,12 +9,17 @@ class ProductNameRow extends StatelessWidget {
   const ProductNameRow({
     Key? key,
     required this.productName,
+    required this.availability,
+    required this.offer,
   }) : super(key: key);
   final String productName;
+  final String availability;
+  final String offer;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Flexible(
           child: Row(
@@ -31,10 +36,10 @@ class ProductNameRow extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     color: offrGreen, borderRadius: BorderRadius.circular(5)),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(6),
                   child: Text(
-                    '30% Off',
+                    '${offer}% Off',
                     style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Rubik',
@@ -48,11 +53,17 @@ class ProductNameRow extends StatelessWidget {
             ],
           ),
         ),
-        SvgPicture.asset(
-          'assets/icons/instock.svg',
-          height: 5.w,
-          width: 8.w,
-        )
+        availability == 'Available'
+            ? SvgPicture.asset(
+                'assets/icons/instock.svg',
+                height: 5.w,
+                width: 8.w,
+              )
+            : SvgPicture.asset(
+                'assets/icons/outofstock.svg',
+                height: 5.w,
+                width: 8.w,
+              ),
       ],
     );
   }
